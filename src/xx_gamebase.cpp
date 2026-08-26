@@ -485,8 +485,9 @@ namespace xx {
 					// ABXY SELECT START ....
 					for (auto i = 0; i <= GLFW_GAMEPAD_BUTTON_LAST; i++) {
 						auto& jb = j.btns[i];
-						if (gs.buttons[i] && !jb) {
-							jb.Press();
+						if (gs.buttons[i]) {
+							// keep stat if possible
+							if(!jb) jb.Press();
 						}
 						else {
 							jb.Release();
